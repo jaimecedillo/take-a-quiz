@@ -53,7 +53,7 @@ function checkAnswer(event) {
         setTimeout(function () {
             document.body.classList.remove("wrong")
             getNextQuestion()
-        }, 2000)
+        }, 1000)
     } else {
         currentQuestionIndex++;
         document.body.classList.add("correct")
@@ -61,7 +61,7 @@ function checkAnswer(event) {
             document.body.classList.remove("correct")
             getNextQuestion()
 
-        }, 2000)
+        }, 1000)
     }
 }
 
@@ -108,7 +108,7 @@ function saveScore() {
         window.localStorage.setItem("highscores", JSON.stringify(highScores));
 
         // redirect to next page
-        window.location.href = "highscores.html";
+        window.location.href = "scores.html";
     }
 }
 function checkForEnter(event) {
