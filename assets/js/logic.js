@@ -11,7 +11,8 @@ var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
-
+var questionEl = document.getElementById("question");
+// var highScores = JSON.parseInt(localStorage.getItem("HighScores")) || [];
 
 function startQuiz() {
     // hide start-box
@@ -19,26 +20,54 @@ function startQuiz() {
     startBoxEl.setAttribute("class", "hide");
     // un-hide quiz-box
     questionsEl.removeAttribute("class");
-    // // start timer
-    // timerId = setInterval(clockTick, 1000);
+    // start timer
+    timerId = setInterval(clockTick, 1000);
 
-    // // show starting time
-    // timerEl.textContent = time;
-    getQuestion();
+    // show starting time
+    timerEl.textContent = time;
+    getNextQuestion();
 }
-function getQuestion() {
-    // get current question object from array
+
+
+function getNextQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
-    var titleEl = document.getElementById("question");
-    titleEl.textContent = currentQuestion.q;
-
-    var choicesEl = document.getElementById('answer-buttons')
-    choicesEl.textContent = currentQuestion.c;
-    // button.classList.add('btn');
+    if (currentQuestion) {
+        choicesEl.innerHTML = "";
+        questionEl.textContent = currentQuestion.q;
+        currentQuestion.c.forEach(function (choice) {
+            var buttonEL = document.createElement("button");
+            buttonEL.classList.add('btn');
+            buttonEL.textContent = choice;
+            buttonEL.addEventListener("click", checkAnswer);
+            choicesEl.appendChild(buttonEL);
+        })
+    } else {
+        quizEnd();
+    }
 }
 
+function checkAnswer(event) {
+    if (event.target.textContent !== questions[currentQuestionIndex].a) {
+        time -= 10;
+        timerEl.textContent = time;
+        currentQuestionIndex++;
+        document.body.classList.add("wrong")
+        setTimeout(function () {
+            document.body.classList.remove("wrong")
+            getNextQuestion()
+        }, 2000)
+    } else {
+        currentQuestionIndex++;
+        document.body.classList.add("correct")
+        setTimeout(function () {
+            document.body.classList.remove("correct")
+            getNextQuestion()
 
+        }, 2000)
+    }
+}
 
 
 // }
 startBtn.addEventListener('click', startQuiz);
+

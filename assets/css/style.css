@@ -14,10 +14,10 @@ body {
     justify-content: center;
     align-items: center;
 }
-body .correct {
+.correct {
     background-color: #53d769;
 }
-body .wrong {
+.wrong {
     background-color: #fc3d39;
 }
 
@@ -151,13 +151,7 @@ a {
       border-color: black;
   }
 
-  .btn.correct {
-      background-color: #53d769;
-      color: black;
-  }
-  .btn.wrong {
-    background-color: #fc3d39;
-}
+
 .hide {
     display: none;
 }
