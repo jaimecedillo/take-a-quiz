@@ -1,11 +1,24 @@
-*{
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: helvetica;
 }
 body {
-    background: cornflowerblue;
+    background: #147efb;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+body .correct {
+    background-color: #53d769;
+}
+body .wrong {
+    background-color: #fc3d39;
 }
 .rules-btn, .rules-box {
     position: absolute;
@@ -16,15 +29,17 @@ body {
 .rules-btn button {
       font-size: 25px;
     font-weight: 500;
-    color:cornflowerblue;
+    color:#147efb;
     padding: 15px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
     background: white;
     cursor: pointer;
+    display: none;
 }
 .rules-box {
+    display: none;
     width: 540px;
     background: white;
     border-radius: 5px;
@@ -39,3 +54,113 @@ body {
     font-size: 20px;
     font-weight: 600;
 }
+
+.rules-box p {
+    padding: 15px 35px;
+    margin: 5px 0;
+    font-size: 17px;
+}
+.paragraph span {
+    font-weight: 600;
+    color: #147efb;
+}
+.quiz-buttons {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 35px;
+    border-top: 1px solid light grey;
+}
+.quiz-buttons button {
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid #147efb;
+    background: #147efb;
+    border-radius: 5px;
+    color:white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor:pointer;
+}
+.quit-btn:hover {
+    background-color: #fc3d39;
+}
+.start-btn:hover {
+    background-color: #53d769;
+}
+
+.timer, .scores {
+    font-size: 25px;
+    font-weight: 500;
+    color:#c2abfb;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    position: absolute;
+    margin-top: 20px;
+}
+.timer {
+    margin-left: 80%;
+    margin-bottom: 80%;
+    padding: 10px;
+    width: 120px;
+}
+
+.scores {
+margin-right: 50%;
+margin-bottom: 80%;
+   text-decoration: none;
+   padding: 20px 20px;
+}
+a {
+    text-decoration: none;
+    color:#c2abfb;
+}
+#clear, .back {
+      font-size: 25px;
+      font-weight: 500;
+      color:#147efb;
+      padding: 15px 30px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      cursor: pointer;
+  }
+
+  .scores-page {
+    margin: 100px auto 0 auto;
+    max-width: 600px;
+    color: white;
+    align-items: center;
+    text-align: center;
+  }
+  .scores-page h1 {
+    margin-bottom: 50px;
+  }
+
+  .container {
+      width: 800px;
+      max-width: 80%;
+      background: white;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 0 10px 2px;
+  }
+  .btn-grid {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 10px;
+      margin: 20px 0;
+  }
+  .btn {
+      border: 1px solid black;
+      background-color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      color: #147efb;
+      outline: none;
+  }
