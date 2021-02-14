@@ -10,7 +10,6 @@ var choicesEl = document.getElementById("answer-buttons");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
-var feedbackEl = document.getElementById("feedback");
 var questionEl = document.getElementById("question");
 // var highScores = JSON.parseInt(localStorage.getItem("HighScores")) || [];
 
@@ -21,7 +20,7 @@ function startQuiz() {
     // un-hide quiz-box
     questionsEl.removeAttribute("class");
     // start timer
-    timerId = setInterval(clockTick, 1000);
+    timerId = setInterval(startClock, 1000);
 
     // show starting time
     timerEl.textContent = time;
@@ -67,6 +66,18 @@ function checkAnswer(event) {
     }
 }
 
+function startClock() {
+    time--;
+    timerEl.textContent = time;
+
+    if (time <= 0) {
+        quizEnd();
+    }
+}
+function quizEnd() {
+    // stop timer
+    clearInterval(timerId);
+}
 
 // }
 startBtn.addEventListener('click', startQuiz);
