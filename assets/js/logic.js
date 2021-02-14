@@ -11,7 +11,6 @@ var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var questionEl = document.getElementById("question");
-// var highScores = JSON.parseInt(localStorage.getItem("HighScores")) || [];
 
 function startQuiz() {
     // hide start-box
@@ -67,9 +66,10 @@ function checkAnswer(event) {
 }
 
 function startClock() {
+    // update time
     time--;
     timerEl.textContent = time;
-
+    // check if user ran out of time
     if (time <= 0) {
         quizEnd();
     }
@@ -91,7 +91,37 @@ function quizEnd() {
 
 }
 
+function saveScore() {
+    // get initials
+    var initials = initialsEl.nodeValue.trim();
+    if (initials !== "") {
+        // get saved scores
+        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
+        // format new score object for current user
+        var newScore = {
+            score: time,
+            initials: initials
+        };
+        // save to local storage
+        highScores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highScores));
 
+        // redirect to next page
+        window.location.href = "highscores.html";
+    }
+}
+function checkForEnter(event) {
+    // "13" represents the enter key
+    if (event.key === "Enter") {
+        saveScore();
+    }
+}
+
+// user clicks button to start quiz
 startBtn.addEventListener('click', startQuiz);
 
+// user clicks button to submit initials
+submitBtn.addEventListener('click', saveScore);
+
+initialsEl.onkeyup = checkForEnter;
