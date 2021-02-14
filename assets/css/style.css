@@ -149,7 +149,15 @@ a {
       border-color: black;
       opacity: .7;
   }
-
+  #end-box {
+    width: 540px;
+    background: white;
+    border-radius: 5px;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20%;
+}
 
 .hide {
     display: none;
