@@ -159,6 +159,33 @@ a {
     margin-top: 20%;
 }
 
+#end-box {
+    width: 540px;
+    height: 175px;
+    background: white;
+    border-radius: 5px;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20%;
+    font-size: 25px;
+}
+#submit {
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid #147efb;
+    background: #147efb;
+    border-radius: 5px;
+    color:white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor:pointer;
+}
+#initials {
+    height:25px;
+    font-size:16px;
+}
 .hide {
     display: none;
 }
