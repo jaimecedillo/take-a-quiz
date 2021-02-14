@@ -20,29 +20,15 @@ body .correct {
 body .wrong {
     background-color: #fc3d39;
 }
-.rules-btn, .rules-box {
+
+.rules-box {
+    width: 540px;
+    background: white;
+    border-radius: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.rules-btn button {
-      font-size: 25px;
-    font-weight: 500;
-    color:#147efb;
-    padding: 15px 30px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    background: white;
-    cursor: pointer;
-    display: none;
-}
-.rules-box {
-    display: none;
-    width: 540px;
-    background: white;
-    border-radius: 5px;
 }
 .rules-box .title {
     height: 60px;
@@ -110,10 +96,9 @@ body .wrong {
 }
 
 .scores {
-margin-right: 50%;
-margin-bottom: 80%;
-   text-decoration: none;
-   padding: 20px 20px;
+    margin-right: 50%;
+    margin-bottom: 80%;
+    padding: 20px 20px;
 }
 a {
     text-decoration: none;
@@ -157,10 +142,25 @@ a {
       margin: 20px 0;
   }
   .btn {
-      border: 1px solid black;
-      background-color: white;
+      border: 2px solid grey;
+      background-color: #147efb;
       border-radius: 5px;
       padding: 5px 10px;
-      color: #147efb;
+      color: white;
       outline: none;
   }
+
+  .btn:hover {
+      border-color: black;
+  }
+
+  .btn.correct {
+      background-color: #53d769;
+      color: black;
+  }
+  .btn.wrong {
+    background-color: #fc3d39;
+}
+.hide, .container {
+    display: none;
+}
