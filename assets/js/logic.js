@@ -53,7 +53,7 @@ function checkAnswer(event) {
         setTimeout(function () {
             document.body.classList.remove("wrong")
             getNextQuestion()
-        }, 1000)
+        }, 500)
     } else {
         currentQuestionIndex++;
         document.body.classList.add("correct")
@@ -61,7 +61,7 @@ function checkAnswer(event) {
             document.body.classList.remove("correct")
             getNextQuestion()
 
-        }, 1000)
+        }, 500)
     }
 }
 
@@ -93,7 +93,7 @@ function quizEnd() {
 
 function saveScore() {
     // get initials
-    var initials = initialsEl.nodeValue.trim();
+    var initials = initialsEl.value.trim();
     if (initials !== "") {
         // get saved scores
         var highScores = JSON.parse(localStorage.getItem("highScores")) || [];

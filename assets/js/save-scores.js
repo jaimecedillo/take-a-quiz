@@ -1,6 +1,6 @@
 function showScores() {
     // either get scores from local storage or set to empty array
-    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
     //  sort scores by highest
     highScores.sort(function (a, b) {
         return b.score - a.score;
@@ -24,4 +24,4 @@ function clearScores() {
 document.getElementById("clear").onclick = clearScores;
 
 // run function when page loads
-printHighscores();
+showScores();
