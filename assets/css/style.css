@@ -21,7 +21,7 @@ body .wrong {
     background-color: #fc3d39;
 }
 
-.rules-box {
+.start-box{
     width: 540px;
     background: white;
     border-radius: 5px;
@@ -30,7 +30,7 @@ body .wrong {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.rules-box .title {
+.start-box .title {
     height: 60px;
     width: 100%;
     border-bottom: 5px solid #c2abfb;
@@ -41,7 +41,7 @@ body .wrong {
     font-weight: 600;
 }
 
-.rules-box p {
+.start-box p {
     padding: 15px 35px;
     margin: 5px 0;
     font-size: 17px;
@@ -70,11 +70,8 @@ body .wrong {
     font-weight: 500;
     cursor:pointer;
 }
-.quit-btn:hover {
-    background-color: #fc3d39;
-}
-.start-btn:hover {
-    background-color: #53d769;
+.quiz-buttons button:hover {
+    background-color: #53d769; 
 }
 
 .timer, .scores {
@@ -127,7 +124,7 @@ a {
     margin-bottom: 50px;
   }
 
-  .container {
+  .quiz {
       width: 800px;
       max-width: 80%;
       background: white;
@@ -161,6 +158,6 @@ a {
   .btn.wrong {
     background-color: #fc3d39;
 }
-.hide, .container {
+.hide, .quiz  {
     display: none;
 }
