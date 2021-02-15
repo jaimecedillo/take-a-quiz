@@ -28,14 +28,17 @@ function startQuiz() {
 
 
 function getNextQuestion() {
+    // get question from array
     var currentQuestion = questions[currentQuestionIndex];
     if (currentQuestion) {
         choicesEl.innerHTML = "";
         questionEl.textContent = currentQuestion.q;
+        // create buttons for choices and loop
         currentQuestion.c.forEach(function (choice) {
             var buttonEL = document.createElement("button");
             buttonEL.classList.add('btn');
             buttonEL.textContent = choice;
+            // user answer choice
             buttonEL.addEventListener("click", checkAnswer);
             choicesEl.appendChild(buttonEL);
         })
@@ -43,11 +46,15 @@ function getNextQuestion() {
         quizEnd();
     }
 }
-
+// check 
 function checkAnswer(event) {
+    // if user guessed wrong
     if (event.target.textContent !== questions[currentQuestionIndex].a) {
+        // penalize time
         time -= 10;
+        // new time
         timerEl.textContent = time;
+        // display red background and move to next question
         currentQuestionIndex++;
         document.body.classList.add("wrong")
         setTimeout(function () {
@@ -55,16 +62,18 @@ function checkAnswer(event) {
             getNextQuestion()
         }, 500)
     } else {
+        // if user guessed right
         currentQuestionIndex++;
         document.body.classList.add("correct")
         setTimeout(function () {
+            // display green background and move to next question
             document.body.classList.remove("correct")
             getNextQuestion()
 
         }, 500)
     }
 }
-
+// timer function
 function startClock() {
     // update time
     time--;
@@ -74,6 +83,7 @@ function startClock() {
         quizEnd();
     }
 }
+// end quiz function
 function quizEnd() {
     // stop timer
     clearInterval(timerId);
@@ -90,13 +100,15 @@ function quizEnd() {
     questionsEl.setAttribute("class", "hide");
 
 }
-
+// save score to local storage
 function saveScore() {
     // get initials
     var initials = initialsEl.value.trim();
+
+    // make sure value wasn't empty
     if (initials !== "") {
         // get saved scores
-        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
 
         // format new score object for current user
         var newScore = {
